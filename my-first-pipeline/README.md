@@ -40,16 +40,17 @@ sudo apt-get install jenkins
    $ su - jenkins
    ```
 10. Jenkins user is created by default when you install the software.
-    ``` $ docker run hello-world
     ```
-   This ensures docker has installed and user has access to docker.
-12. Now jenkins user is also able to create the containers or run the containers.
-13. Restart your jenkins\
+    $ docker run hello-world
+    ``` \
+   This ensures docker has installed and user has access to docker.\
+11. Now jenkins user is also able to create the containers or run the containers.
+12. Restart your jenkins\
    *(Go to your jenkins url, then /restart)*.
-14. Once you install docker, the other thing you have to do is you have to install the docker plugin inside this jenkins.
-15. Now Go to **'manage jenkins'**, then click **'available plugins'**, then type **"docker pipeline"**.
-16. Then select **"Pipeline Project"** and add groovy code for our pipeline.
-17. Then click **"Build Now"**, it executes our pipeline inside the docker agent.
+13. Once you install docker, the other thing you have to do is you have to install the docker plugin inside this jenkins.
+14. Now Go to **'manage jenkins'**, then click **'available plugins'**, then type **"docker pipeline"**.
+15. Then select **"Pipeline Project"** and add groovy code for our pipeline.
+16. Then click **"Build Now"**, it executes our pipeline inside the docker agent.
 
 ### Console Output:
 1. It checks docker image is already available.
