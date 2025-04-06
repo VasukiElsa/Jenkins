@@ -45,7 +45,7 @@ sudo apt-get install jenkins
     $ docker run hello-world
     ``` 
    This ensures docker has installed and user has access to docker.\
-11. Now jenkins user is also able to create the containers or run the containers.
+11. Now jenkins user is also able to create the containers or run the containers.\
 12. Restart your jenkins\
    *(Go to your jenkins url, then /restart)*.\
 13. Once you install docker, the other thing you have to do is you have to install the docker plugin inside this jenkins.\
@@ -55,8 +55,6 @@ sudo apt-get install jenkins
 
 ### Console Output:
 1. It checks docker image is already available.
-   ```$ docker inspect -f . node:16-alpine
-   ```
 2. If not, it grab that image from docker-hub and run the container.
 3. It displays, "Hello World".
 4. Then it checks image version.
