@@ -35,15 +35,17 @@ sudo apt-get install jenkins
    usermod -aG docker ubuntu\
    systemctl restart docker
 ```
-8. Switch to jenkins user
- ```  $ su - jenkins
-```
+9. Switch to jenkins user
+   ```
+   $ su - jenkins
+   ```
 10. Jenkins user is created by default when you install the software
-   ``` $ docker run hello-world
-```\
+   ```
+   $ docker run hello-world
+   ``` <br>
    This ensures docker has installed and user has access to docker.
 12. Now jenkins user is also able to create the containers or run the containers.
-13. Restart your jenkins\
+13. Restart your jenkins <br>
    *(Go to your jenkins url, then /restart)*.
 14. Once you install docker, the other thing you have to do is you have to install the docker plugin inside this jenkins.
 15. Now Go to **'manage jenkins'**, then click **'available plugins'**, then type **"docker pipeline"**.
@@ -53,7 +55,7 @@ sudo apt-get install jenkins
 ### Console Output:
 1. It checks docker image is already available.
    ```$ docker inspect -f . node:16-alpine
-```
+   ```
 2. If not, it grab that image from docker-hub and run the container.
 3. It displays, "Hello World".
 4. Then it checks image version.
