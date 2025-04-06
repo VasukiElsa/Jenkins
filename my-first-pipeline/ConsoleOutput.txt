@@ -1,0 +1,39 @@
+Started by user admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/first-jenkins-job
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker inspect -f . node:16-alpine
+.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withDockerContainer
+Jenkins does not seem to be running inside a container
+$ docker run -t -d -u 111:113 -w /var/lib/jenkins/workspace/first-jenkins-job -v /var/lib/jenkins/workspace/first-jenkins-job:/var/lib/jenkins/workspace/first-jenkins-job:rw,z -v /var/lib/jenkins/workspace/first-jenkins-job@tmp:/var/lib/jenkins/workspace/first-jenkins-job@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** node:16-alpine cat
+$ docker top b00d7853a936b84767b858789825092d7be1ccb00decaf7304a6ef056443ddc1 -eo pid,comm
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Hello)
+[Pipeline] echo
+Hello World
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] sh
++ node --version
+v16.20.2
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+$ docker stop --time=1 b00d7853a936b84767b858789825092d7be1ccb00decaf7304a6ef056443ddc1
+$ docker rm -f --volumes b00d7853a936b84767b858789825092d7be1ccb00decaf7304a6ef056443ddc1
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
