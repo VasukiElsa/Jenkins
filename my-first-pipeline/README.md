@@ -27,9 +27,10 @@ sudo apt-get install jenkins
 4. Then add inbound rule for jenkins to access the port **8080**
 5. Then sign-in to the jenkins by *"http://public-ip-instance:8080"*
 6. Install Docker on the same EC2 instance
-  ``` $ sudo apt install docker.io
-```
-8. Grant Jenkins user and ubuntu user permission to docker daemon.
+   ```
+    $ sudo apt install docker.io
+   ```
+7. Grant Jenkins user and ubuntu user permission to docker daemon.
   ``` $ sudo su -
    usermod -aG docker jenkins\
    usermod -aG docker ubuntu\
@@ -42,14 +43,14 @@ sudo apt-get install jenkins
 10. Jenkins user is created by default when you install the software.
     ```
     $ docker run hello-world
-    ``` \
+    ``` 
    This ensures docker has installed and user has access to docker.\
 11. Now jenkins user is also able to create the containers or run the containers.
 12. Restart your jenkins\
-   *(Go to your jenkins url, then /restart)*.
-13. Once you install docker, the other thing you have to do is you have to install the docker plugin inside this jenkins.
-14. Now Go to **'manage jenkins'**, then click **'available plugins'**, then type **"docker pipeline"**.
-15. Then select **"Pipeline Project"** and add groovy code for our pipeline.
+   *(Go to your jenkins url, then /restart)*.\
+13. Once you install docker, the other thing you have to do is you have to install the docker plugin inside this jenkins.\
+14. Now Go to **'manage jenkins'**, then click **'available plugins'**, then type **"docker pipeline"**.\
+15. Then select **"Pipeline Project"** and add groovy code for our pipeline.\
 16. Then click **"Build Now"**, it executes our pipeline inside the docker agent.
 
 ### Console Output:
