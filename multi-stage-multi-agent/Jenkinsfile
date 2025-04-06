@@ -10,7 +10,7 @@ pipeline{
             steps{
                 sh 'mvn --version'
 
-                sh 'cp multi-stage-multi-agent\HelloWorld.java .'
+                sh 'cp multi-stage-multi-agent/HelloWorld.java .'
                 
                 sh 'javac HelloWorld.java'
 
