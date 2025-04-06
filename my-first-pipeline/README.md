@@ -13,7 +13,8 @@ Agents : Docker Container
 1. Create an EC2 instance on AWS then install jenkins
 2. Prerequisites to install jenkins is to install java
   ``` $ sudo apt update
-   $ sudo apt install openjdk-17-jre  ```
+   $ sudo apt install openjdk-17-jre
+```
 3. Install Jenkins
  ```  $ curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
@@ -21,7 +22,8 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
   https://pkg.jenkins.io/debian binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt-get update
-sudo apt-get install jenkins```
+sudo apt-get install jenkins
+```
 4. Then add inbound rule for jenkins to access the port **8080**
 5. Then sign-in to the jenkins by *"http://<public-ip-instance>:8080"*
 6. Install Docker on the same EC2 instance
