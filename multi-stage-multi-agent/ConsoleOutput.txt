@@ -1,0 +1,162 @@
+Started by user admin
+Obtained multi-stage-multi-agent/Jenkinsfile from git https://github.com/VasukiElsa/jenkins.git
+[Pipeline] Start of Pipeline
+[Pipeline] stage
+[Pipeline] { (Backend)
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/multi-stage-multi-agent
+[Pipeline] {
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/VasukiElsa/jenkins.git
+ > git init /var/lib/jenkins/workspace/multi-stage-multi-agent # timeout=10
+Fetching upstream changes from https://github.com/VasukiElsa/jenkins.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/VasukiElsa/jenkins.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/VasukiElsa/jenkins.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision aedc94fa7a191d10d0a28b6863aa75d8ec0f663f (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f aedc94fa7a191d10d0a28b6863aa75d8ec0f663f # timeout=10
+Commit message: "Use Forward Slash for file path"
+First time build. Skipping changelog.
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker inspect -f . maven:3.8.1-adoptopenjdk-11
+
+Error: No such object: maven:3.8.1-adoptopenjdk-11
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker pull maven:3.8.1-adoptopenjdk-11
+3.8.1-adoptopenjdk-11: Pulling from library/maven
+16ec32c2132b: Pulling fs layer
+3f63509f5b97: Pulling fs layer
+34d7b43f221b: Pulling fs layer
+a1931e18ae45: Pulling fs layer
+20904a3b2df7: Pulling fs layer
+fb5c0685f15f: Pulling fs layer
+a18abadafb9a: Pulling fs layer
+a1931e18ae45: Waiting
+20904a3b2df7: Waiting
+fb5c0685f15f: Waiting
+a18abadafb9a: Waiting
+3f63509f5b97: Verifying Checksum
+3f63509f5b97: Download complete
+16ec32c2132b: Verifying Checksum
+16ec32c2132b: Download complete
+20904a3b2df7: Verifying Checksum
+20904a3b2df7: Download complete
+a1931e18ae45: Verifying Checksum
+a1931e18ae45: Download complete
+fb5c0685f15f: Verifying Checksum
+fb5c0685f15f: Download complete
+a18abadafb9a: Verifying Checksum
+a18abadafb9a: Download complete
+34d7b43f221b: Verifying Checksum
+34d7b43f221b: Download complete
+16ec32c2132b: Pull complete
+3f63509f5b97: Pull complete
+34d7b43f221b: Pull complete
+a1931e18ae45: Pull complete
+20904a3b2df7: Pull complete
+fb5c0685f15f: Pull complete
+a18abadafb9a: Pull complete
+Digest: sha256:143ff7942b5ef5a004252405a31fa2813dfa438f08494fad1757029de5f64082
+Status: Downloaded newer image for maven:3.8.1-adoptopenjdk-11
+docker.io/library/maven:3.8.1-adoptopenjdk-11
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withDockerContainer
+Jenkins does not seem to be running inside a container
+$ docker run -t -d -u 111:113 -w /var/lib/jenkins/workspace/multi-stage-multi-agent -v /var/lib/jenkins/workspace/multi-stage-multi-agent:/var/lib/jenkins/workspace/multi-stage-multi-agent:rw,z -v /var/lib/jenkins/workspace/multi-stage-multi-agent@tmp:/var/lib/jenkins/workspace/multi-stage-multi-agent@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** maven:3.8.1-adoptopenjdk-11 cat
+$ docker top aea50fbf17c737a8309ac6bf0c7f3974d7bea97578cd5b3da97878d3948ffc98 -eo pid,comm
+[Pipeline] {
+[Pipeline] sh
++ mvn --version
+Apache Maven 3.8.1 (05c21c65bdfed0f71a2f2ada8b84da59348c4c5d)
+Maven home: /usr/share/maven
+Java version: 11.0.11, vendor: AdoptOpenJDK, runtime: /opt/java/openjdk
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "6.8.0-1026-aws", arch: "amd64", family: "unix"
+[Pipeline] sh
++ cp multi-stage-multi-agent/HelloWorld.java .
+[Pipeline] sh
++ javac HelloWorld.java
+[Pipeline] sh
++ java HelloWorld
+Hello World
+[Pipeline] }
+$ docker stop --time=1 aea50fbf17c737a8309ac6bf0c7f3974d7bea97578cd5b3da97878d3948ffc98
+$ docker rm -f --volumes aea50fbf17c737a8309ac6bf0c7f3974d7bea97578cd5b3da97878d3948ffc98
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Frontend)
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/multi-stage-multi-agent
+[Pipeline] {
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/multi-stage-multi-agent/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/VasukiElsa/jenkins.git # timeout=10
+Fetching upstream changes from https://github.com/VasukiElsa/jenkins.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/VasukiElsa/jenkins.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision aedc94fa7a191d10d0a28b6863aa75d8ec0f663f (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f aedc94fa7a191d10d0a28b6863aa75d8ec0f663f # timeout=10
+Commit message: "Use Forward Slash for file path"
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker inspect -f . node:16-alpine
+.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] withDockerContainer
+Jenkins does not seem to be running inside a container
+$ docker run -t -d -u 111:113 -w /var/lib/jenkins/workspace/multi-stage-multi-agent -v /var/lib/jenkins/workspace/multi-stage-multi-agent:/var/lib/jenkins/workspace/multi-stage-multi-agent:rw,z -v /var/lib/jenkins/workspace/multi-stage-multi-agent@tmp:/var/lib/jenkins/workspace/multi-stage-multi-agent@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** node:16-alpine cat
+$ docker top c66fed3bfdf6103a21c380eb67022e1a5604e868d55043ec75654016155fd891 -eo pid,comm
+[Pipeline] {
+[Pipeline] sh
++ node --version
+v16.20.2
+[Pipeline] }
+$ docker stop --time=1 c66fed3bfdf6103a21c380eb67022e1a5604e868d55043ec75654016155fd891
+$ docker rm -f --volumes c66fed3bfdf6103a21c380eb67022e1a5604e868d55043ec75654016155fd891
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] End of Pipeline
+Finished: SUCCESS
