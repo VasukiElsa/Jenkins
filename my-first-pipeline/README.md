@@ -25,30 +25,35 @@ sudo apt-get update
 sudo apt-get install jenkins
 ```
 4. Then add inbound rule for jenkins to access the port **8080**
-5. Then sign-in to the jenkins by *"http://<public-ip-instance>:8080"*
+5. Then sign-in to the jenkins by *"http://public-ip-instance:8080"*
 6. Install Docker on the same EC2 instance
-   ```$ sudo apt install docker.io```
-7. Grant Jenkins user and ubuntu user permission to docker daemon.
+   ```$ sudo apt install docker.io
+   ```
+8. Grant Jenkins user and ubuntu user permission to docker daemon.
   ``` $ sudo su -
    usermod -aG docker jenkins\
    usermod -aG docker ubuntu\
-   systemctl restart docker```
+   systemctl restart docker
+```
 8. Switch to jenkins user
- ```  $ su - jenkins ```
-9. Jenkins user is created by default when you install the software
-   ``` $ docker run hello-world```\
+ ```  $ su - jenkins
+```
+10. Jenkins user is created by default when you install the software
+   ``` $ docker run hello-world
+```\
    This ensures docker has installed and user has access to docker.
-10. Now jenkins user is also able to create the containers or run the containers.
-11. Restart your jenkins\
+12. Now jenkins user is also able to create the containers or run the containers.
+13. Restart your jenkins\
    *(Go to your jenkins url, then /restart)*.
-12. Once you install docker, the other thing you have to do is you have to install the docker plugin inside this jenkins.
-13. Now Go to **'manage jenkins'**, then click **'available plugins'**, then type **"docker pipeline"**.
-14. Then select **"Pipeline Project"** and add groovy code for our pipeline.
-15. Then click **"Build Now"**, it executes our pipeline inside the docker agent.
+14. Once you install docker, the other thing you have to do is you have to install the docker plugin inside this jenkins.
+15. Now Go to **'manage jenkins'**, then click **'available plugins'**, then type **"docker pipeline"**.
+16. Then select **"Pipeline Project"** and add groovy code for our pipeline.
+17. Then click **"Build Now"**, it executes our pipeline inside the docker agent.
 
 ### Console Output:
 1. It checks docker image is already available.
-   ```$ docker inspect -f . node:16-alpine```
+   ```$ docker inspect -f . node:16-alpine
+```
 2. If not, it grab that image from docker-hub and run the container.
 3. It displays, "Hello World".
 4. Then it checks image version.
